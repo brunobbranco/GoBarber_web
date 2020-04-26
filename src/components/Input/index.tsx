@@ -1,18 +1,15 @@
-import React, { InputHTMLAttributes, ComponentType } from 'react';
-import { IconBaseProps } from 'react-icons';
+import React, { InputHTMLAttributes } from 'react';
 
-import { Container } from './styles';
+import { Container } from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  icon?: React.ComponentType<IconBaseProps>;
 }
 
-const Input: React.FC<InputProps> = ({ icon: Icon, ...rest }) => (
+const Input: React.FC<InputProps> = (props) => (
   <Container>
-    {Icon && <Icon size={20} />}
-    <input {...rest} />
+    <input {...props} />
   </Container>
-);
+)
 
 export default Input;
