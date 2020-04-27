@@ -1,17 +1,11 @@
 import styled, { css } from 'styled-components';
 
-interface ToastProps {
-  type?: 'success' | 'error' | 'info';
-  hasDescription: boolean;
-}
+import { animated } from 'react-spring';
 
-export const Container = styled.div`
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 30px;
-  overflow: hidden;
-`;
+interface ContainerProps {
+  type?: 'success' | 'error' | 'info';
+  hasdescription: boolean;
+}
 
 const toastTypeVariations = {
   info: css`
@@ -30,7 +24,7 @@ const toastTypeVariations = {
   `,
 };
 
-export const Toast = styled.div<ToastProps>`
+export const Container = styled(animated.div) <ContainerProps>`
   width: 360px;
 
   position: relative;
@@ -75,7 +69,7 @@ export const Toast = styled.div<ToastProps>`
   }
 
   ${(props) =>
-    !props.hasDescription &&
+    !props.hasdescription &&
     css`
       align-items: center;
 
